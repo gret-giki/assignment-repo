@@ -1,0 +1,38 @@
+
+int LED = 7;
+int inpin = 4;
+int val = 0;
+int switc = 12;
+int val2 = 0;
+
+
+void setup() {
+  pinMode(LED, OUTPUT);// put your setup code here, to run once:
+  pinMode(inpin, INPUT);
+  pinMode(switc, INPUT);
+}
+
+
+void loop() {
+  val = digitalRead(inpin);
+  digitalWrite(LED, val);
+
+  val2 = digitalRead(switc);
+  digitalWrite(LED, val2);
+
+  if (val2 == HIGH) {
+    digitalWrite(LED, HIGH);
+  }
+  else {
+    if (val == HIGH) {
+      digitalWrite(LED, HIGH);
+      delay(2000);
+      digitalWrite(LED, LOW);
+      delay(2000);
+    }
+    else {
+      digitalWrite(LED, LOW);
+
+    }
+  }
+}
